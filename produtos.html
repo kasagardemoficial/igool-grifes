@@ -86,16 +86,26 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
         <div class="nav-dropdown mega">
           <div class="brands-grid">
-            <a href="#">Tommy Hilfiger</a>
-            <a href="#">Calvin Klein</a>
-            <a href="#">Lacoste</a>
-            <a href="#">Ralph Lauren</a>
-            <a href="#">Hugo Boss</a>
-            <a href="#">Nike</a>
-            <a href="#">Adidas</a>
-            <a href="#">Reserva</a>
-            <a href="#">Osklen</a>
-            <a href="#">John John</a>
+            <a href="marca.html?marca=tommy-hilfiger">Tommy Hilfiger</a>
+            <a href="marca.html?marca=calvin-klein">Calvin Klein</a>
+            <a href="marca.html?marca=lacoste">Lacoste</a>
+            <a href="marca.html?marca=ralph-lauren">Ralph Lauren</a>
+            <a href="marca.html?marca=hugo-boss">Hugo Boss</a>
+            <a href="marca.html?marca=diesel">Diesel</a>
+            <a href="marca.html?marca=armani-exchange">Armani Exchange</a>
+            <a href="marca.html?marca=reserva">Reserva</a>
+            <a href="marca.html?marca=osklen">Osklen</a>
+            <a href="marca.html?marca=john-john">John John</a>
+            <a href="marca.html?marca=colcci">Colcci</a>
+            <a href="marca.html?marca=ellus">Ellus</a>
+            <a href="marca.html?marca=forum">Forum</a>
+            <a href="marca.html?marca=nike">Nike</a>
+            <a href="marca.html?marca=adidas">Adidas</a>
+            <a href="marca.html?marca=puma">Puma</a>
+            <a href="marca.html?marca=fila">Fila</a>
+            <a href="marca.html?marca=new-balance">New Balance</a>
+            <a href="marca.html?marca=vans">Vans</a>
+            <a href="marca.html?marca=levis">Levi's</a>
           </div>
         </div>
       </div>
@@ -114,7 +124,7 @@
     <div class="container">
       <a href="index.html">Home</a>
       <span>&rsaquo;</span>
-      Camisetas
+      Todos os Produtos
     </div>
   </div>
 
@@ -125,15 +135,15 @@
       <!-- Catalog Header -->
       <div class="catalog-header">
         <div>
-          <h1>Camisetas</h1>
-          <p class="results">128 produtos encontrados</p>
+          <h1>Todos os Produtos</h1>
+          <p class="results" id="results-count">Carregando produtos...</p>
         </div>
         <div class="catalog-sort">
-          <select>
+          <select id="sort-select">
             <option value="relevancia">Ordenar por: Relevância</option>
             <option value="menor-preco">Menor preço</option>
             <option value="maior-preco">Maior preço</option>
-            <option value="mais-vendidos">Mais vendidos</option>
+            <option value="maior-desconto">Maior desconto</option>
           </select>
         </div>
       </div>
@@ -145,41 +155,32 @@
         <aside class="catalog-filters">
 
           <!-- Marcas -->
-          <div class="filter-group">
+          <div class="filter-group" id="filter-marcas">
             <h4>Marcas <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></h4>
-            <label><input type="checkbox"> Tommy Hilfiger</label>
-            <label><input type="checkbox"> Calvin Klein</label>
-            <label><input type="checkbox"> Lacoste</label>
-            <label><input type="checkbox"> Ralph Lauren</label>
-            <label><input type="checkbox"> Hugo Boss</label>
-            <label><input type="checkbox"> Nike</label>
-            <label><input type="checkbox"> Adidas</label>
-            <label><input type="checkbox"> Reserva</label>
-            <label><input type="checkbox"> Osklen</label>
-            <label><input type="checkbox"> John John</label>
+            <!-- Populated dynamically -->
           </div>
 
           <!-- Tamanho -->
-          <div class="filter-group">
+          <div class="filter-group" id="filter-tamanhos">
             <h4>Tamanho <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></h4>
-            <label><input type="checkbox"> PP</label>
-            <label><input type="checkbox"> P</label>
-            <label><input type="checkbox"> M</label>
-            <label><input type="checkbox"> G</label>
-            <label><input type="checkbox"> GG</label>
-            <label><input type="checkbox"> GGG</label>
+            <label><input type="checkbox" data-tamanho="PP"> PP</label>
+            <label><input type="checkbox" data-tamanho="P"> P</label>
+            <label><input type="checkbox" data-tamanho="M"> M</label>
+            <label><input type="checkbox" data-tamanho="G"> G</label>
+            <label><input type="checkbox" data-tamanho="GG"> GG</label>
+            <label><input type="checkbox" data-tamanho="GGG"> GGG</label>
           </div>
 
           <!-- Cor -->
           <div class="filter-group">
             <h4>Cor <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></h4>
             <div class="color-circles">
-              <div class="color-circle" style="background:#ffffff; border-color:#ccc;" title="Branco"></div>
-              <div class="color-circle" style="background:#1a1a1a;" title="Preto"></div>
-              <div class="color-circle" style="background:#1565c0;" title="Azul"></div>
-              <div class="color-circle" style="background:#c8102e;" title="Vermelho"></div>
-              <div class="color-circle" style="background:#2e7d32;" title="Verde"></div>
-              <div class="color-circle" style="background:#9e9e9e;" title="Cinza"></div>
+              <div class="color-circle" style="background:#ffffff; border-color:#ccc;" title="Branco" data-cor="Branco"></div>
+              <div class="color-circle" style="background:#1a1a1a;" title="Preto" data-cor="Preto"></div>
+              <div class="color-circle" style="background:#1565c0;" title="Azul" data-cor="Azul"></div>
+              <div class="color-circle" style="background:#c8102e;" title="Vermelho" data-cor="Vermelho"></div>
+              <div class="color-circle" style="background:#2e7d32;" title="Verde" data-cor="Verde"></div>
+              <div class="color-circle" style="background:#9e9e9e;" title="Cinza" data-cor="Cinza"></div>
             </div>
           </div>
 
@@ -187,309 +188,220 @@
           <div class="filter-group">
             <h4>Preço <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></h4>
             <div class="price-range">
-              <input type="text" placeholder="R$ Mín">
+              <input type="text" placeholder="R$ Mín" id="price-min">
               <span>—</span>
-              <input type="text" placeholder="R$ Máx">
+              <input type="text" placeholder="R$ Máx" id="price-max">
             </div>
-            <button class="btn-filter">Filtrar</button>
+            <button class="btn-filter" id="btn-price-filter">Filtrar</button>
           </div>
+
+          <!-- Limpar Filtros -->
+          <button id="btn-clear-filters" style="width:100%;padding:10px;margin-top:12px;background:none;border:1px solid #ccc;border-radius:6px;cursor:pointer;font-size:13px;color:#666;">Limpar Filtros</button>
 
         </aside>
 
         <!-- Right Product Grid -->
         <div class="catalog-products">
-          <div class="products-grid">
-
-            <!-- Product 1 -->
-            <div class="product-card">
-              <div class="badges">
-                <span class="badge-discount">-45%</span>
-                <span class="badge-frete">FRETE GRÁTIS</span>
-              </div>
-              <div class="img-wrap">
-                <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a3a5c,#2c5f8a,#1a3a5c);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.15);font-size:48px;font-weight:900;">TH</div>
-                <div class="wishlist-btn">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-                </div>
-              </div>
-              <div class="product-info">
-                <div class="brand">Tommy Hilfiger</div>
-                <div class="name">Camiseta Básica Algodão Pima Logo Bordado</div>
-                <div class="prices">
-                  <span class="old-price">R$349,99</span>
-                  <span class="current-price">R$189,99</span>
-                </div>
-                <div class="pix-label">no pix</div>
-                <div class="installments">ou 6x de R$33,89 sem juros</div>
-              </div>
-            </div>
-
-            <!-- Product 2 -->
-            <div class="product-card">
-              <div class="badges">
-                <span class="badge-discount">-50%</span>
-                <span class="badge-frete">FRETE GRÁTIS</span>
-              </div>
-              <div class="img-wrap">
-                <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a1a1a,#333,#1a1a1a);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.15);font-size:48px;font-weight:900;">CK</div>
-                <div class="wishlist-btn">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-                </div>
-              </div>
-              <div class="product-info">
-                <div class="brand">Calvin Klein</div>
-                <div class="name">Camiseta CK Jeans Estampada Slim Fit</div>
-                <div class="prices">
-                  <span class="old-price">R$299,99</span>
-                  <span class="current-price">R$149,99</span>
-                </div>
-                <div class="pix-label">no pix</div>
-                <div class="installments">ou 5x de R$33,33 sem juros</div>
-              </div>
-            </div>
-
-            <!-- Product 3 -->
-            <div class="product-card">
-              <div class="badges">
-                <span class="badge-discount">-40%</span>
-              </div>
-              <div class="img-wrap">
-                <div style="width:100%;height:100%;background:linear-gradient(135deg,#1b5e20,#388e3c,#1b5e20);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.15);font-size:48px;font-weight:900;">LC</div>
-                <div class="wishlist-btn">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-                </div>
-              </div>
-              <div class="product-info">
-                <div class="brand">Lacoste</div>
-                <div class="name">Polo Lacoste L.12.12 Classic Fit Petit Piqué</div>
-                <div class="prices">
-                  <span class="old-price">R$499,99</span>
-                  <span class="current-price">R$299,99</span>
-                </div>
-                <div class="pix-label">no pix</div>
-                <div class="installments">ou 10x de R$33,33 sem juros</div>
-              </div>
-            </div>
-
-            <!-- Product 4 -->
-            <div class="product-card">
-              <div class="badges">
-                <span class="badge-discount">-55%</span>
-                <span class="badge-frete">FRETE GRÁTIS</span>
-              </div>
-              <div class="img-wrap">
-                <div style="width:100%;height:100%;background:linear-gradient(135deg,#0d47a1,#1565c0,#0d47a1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.15);font-size:48px;font-weight:900;">RL</div>
-                <div class="wishlist-btn">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-                </div>
-              </div>
-              <div class="product-info">
-                <div class="brand">Ralph Lauren</div>
-                <div class="name">Polo Ralph Lauren Custom Slim Fit Mesh</div>
-                <div class="prices">
-                  <span class="old-price">R$449,99</span>
-                  <span class="current-price">R$199,99</span>
-                </div>
-                <div class="pix-label">no pix</div>
-                <div class="installments">ou 6x de R$37,22 sem juros</div>
-              </div>
-            </div>
-
-            <!-- Product 5 -->
-            <div class="product-card">
-              <div class="badges">
-                <span class="badge-discount">-35%</span>
-              </div>
-              <div class="img-wrap">
-                <div style="width:100%;height:100%;background:linear-gradient(135deg,#212121,#424242,#212121);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.15);font-size:48px;font-weight:900;">HB</div>
-                <div class="wishlist-btn">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-                </div>
-              </div>
-              <div class="product-info">
-                <div class="brand">Hugo Boss</div>
-                <div class="name">Camiseta Boss Thinking Regular Fit Algodão</div>
-                <div class="prices">
-                  <span class="old-price">R$399,99</span>
-                  <span class="current-price">R$259,99</span>
-                </div>
-                <div class="pix-label">no pix</div>
-                <div class="installments">ou 8x de R$36,11 sem juros</div>
-              </div>
-            </div>
-
-            <!-- Product 6 -->
-            <div class="product-card">
-              <div class="badges">
-                <span class="badge-discount">-60%</span>
-                <span class="badge-frete">FRETE GRÁTIS</span>
-              </div>
-              <div class="img-wrap">
-                <div style="width:100%;height:100%;background:linear-gradient(135deg,#e65100,#ff8f00,#e65100);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.15);font-size:48px;font-weight:900;">NK</div>
-                <div class="wishlist-btn">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-                </div>
-              </div>
-              <div class="product-info">
-                <div class="brand">Nike</div>
-                <div class="name">Camiseta Nike Sportswear Club Masculina</div>
-                <div class="prices">
-                  <span class="old-price">R$219,99</span>
-                  <span class="current-price">R$89,99</span>
-                </div>
-                <div class="pix-label">no pix</div>
-                <div class="installments">ou 3x de R$33,33 sem juros</div>
-              </div>
-            </div>
-
-            <!-- Product 7 -->
-            <div class="product-card">
-              <div class="badges">
-                <span class="badge-discount">-40%</span>
-                <span class="badge-frete">FRETE GRÁTIS</span>
-              </div>
-              <div class="img-wrap">
-                <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a237e,#3949ab,#1a237e);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.15);font-size:48px;font-weight:900;">AD</div>
-                <div class="wishlist-btn">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-                </div>
-              </div>
-              <div class="product-info">
-                <div class="brand">Adidas</div>
-                <div class="name">Camiseta Adidas Essentials 3-Stripes</div>
-                <div class="prices">
-                  <span class="old-price">R$199,99</span>
-                  <span class="current-price">R$119,99</span>
-                </div>
-                <div class="pix-label">no pix</div>
-                <div class="installments">ou 4x de R$33,33 sem juros</div>
-              </div>
-            </div>
-
-            <!-- Product 8 -->
-            <div class="product-card">
-              <div class="badges">
-                <span class="badge-discount">-30%</span>
-              </div>
-              <div class="img-wrap">
-                <div style="width:100%;height:100%;background:linear-gradient(135deg,#4e342e,#6d4c41,#4e342e);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.15);font-size:48px;font-weight:900;">RV</div>
-                <div class="wishlist-btn">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-                </div>
-              </div>
-              <div class="product-info">
-                <div class="brand">Reserva</div>
-                <div class="name">Camiseta Reserva Pica-Pau Bordado Gola Careca</div>
-                <div class="prices">
-                  <span class="old-price">R$189,99</span>
-                  <span class="current-price">R$132,99</span>
-                </div>
-                <div class="pix-label">no pix</div>
-                <div class="installments">ou 4x de R$37,00 sem juros</div>
-              </div>
-            </div>
-
-            <!-- Product 9 -->
-            <div class="product-card">
-              <div class="badges">
-                <span class="badge-discount">-45%</span>
-                <span class="badge-frete">FRETE GRÁTIS</span>
-              </div>
-              <div class="img-wrap">
-                <div style="width:100%;height:100%;background:linear-gradient(135deg,#e0e0e0,#f5f5f5,#e0e0e0);display:flex;align-items:center;justify-content:center;color:rgba(0,0,0,0.08);font-size:48px;font-weight:900;">OS</div>
-                <div class="wishlist-btn">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-                </div>
-              </div>
-              <div class="product-info">
-                <div class="brand">Osklen</div>
-                <div class="name">Camiseta Osklen Stone Vintage Coroa Masculina</div>
-                <div class="prices">
-                  <span class="old-price">R$329,99</span>
-                  <span class="current-price">R$179,99</span>
-                </div>
-                <div class="pix-label">no pix</div>
-                <div class="installments">ou 6x de R$33,33 sem juros</div>
-              </div>
-            </div>
-
-            <!-- Product 10 -->
-            <div class="product-card">
-              <div class="badges">
-                <span class="badge-discount">-50%</span>
-                <span class="badge-frete">FRETE GRÁTIS</span>
-              </div>
-              <div class="img-wrap">
-                <div style="width:100%;height:100%;background:linear-gradient(135deg,#880e4f,#ad1457,#880e4f);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.15);font-size:48px;font-weight:900;">JJ</div>
-                <div class="wishlist-btn">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-                </div>
-              </div>
-              <div class="product-info">
-                <div class="brand">John John</div>
-                <div class="name">Camiseta John John Skull Estampada Preta</div>
-                <div class="prices">
-                  <span class="old-price">R$279,99</span>
-                  <span class="current-price">R$139,99</span>
-                </div>
-                <div class="pix-label">no pix</div>
-                <div class="installments">ou 4x de R$38,89 sem juros</div>
-              </div>
-            </div>
-
-            <!-- Product 11 -->
-            <div class="product-card">
-              <div class="badges">
-                <span class="badge-discount">-35%</span>
-              </div>
-              <div class="img-wrap">
-                <div style="width:100%;height:100%;background:linear-gradient(135deg,#c62828,#e53935,#c62828);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.15);font-size:48px;font-weight:900;">TH</div>
-                <div class="wishlist-btn">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-                </div>
-              </div>
-              <div class="product-info">
-                <div class="brand">Tommy Hilfiger</div>
-                <div class="name">Polo Tommy Hilfiger Regular Fit Listrada</div>
-                <div class="prices">
-                  <span class="old-price">R$429,99</span>
-                  <span class="current-price">R$279,99</span>
-                </div>
-                <div class="pix-label">no pix</div>
-                <div class="installments">ou 9x de R$34,44 sem juros</div>
-              </div>
-            </div>
-
-            <!-- Product 12 -->
-            <div class="product-card">
-              <div class="badges">
-                <span class="badge-discount">-55%</span>
-                <span class="badge-frete">FRETE GRÁTIS</span>
-              </div>
-              <div class="img-wrap">
-                <div style="width:100%;height:100%;background:linear-gradient(135deg,#37474f,#546e7a,#37474f);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.15);font-size:48px;font-weight:900;">CK</div>
-                <div class="wishlist-btn">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-                </div>
-              </div>
-              <div class="product-info">
-                <div class="brand">Calvin Klein</div>
-                <div class="name">Camiseta Calvin Klein Gola V Básica Cinza</div>
-                <div class="prices">
-                  <span class="old-price">R$259,99</span>
-                  <span class="current-price">R$116,99</span>
-                </div>
-                <div class="pix-label">no pix</div>
-                <div class="installments">ou 3x de R$43,33 sem juros</div>
-              </div>
-            </div>
-
+          <div class="products-grid" id="products-grid">
+            <!-- Loaded dynamically from produtos.json -->
           </div>
         </div>
 
       </div>
     </div>
   </section>
+
+  <script>
+  (function() {
+    const brandColors = {
+      'tommy-hilfiger': ['#1a3a5c','#2d5a8e'],
+      'calvin-klein': ['#1a1a1a','#333'],
+      'lacoste': ['#0d5c3a','#1a8c5c'],
+      'ralph-lauren': ['#0d47a1','#1565c0'],
+      'hugo-boss': ['#212121','#424242'],
+      'diesel': ['#5c1a1a','#8e2d2d'],
+      'armani-exchange': ['#1a1a3e','#2d2d5e'],
+      'reserva': ['#4e342e','#6d4c41'],
+      'osklen': ['#37474f','#546e7a'],
+      'john-john': ['#880e4f','#ad1457'],
+      'colcci': ['#4a148c','#7b1fa2'],
+      'ellus': ['#263238','#455a64'],
+      'forum': ['#1b5e20','#2e7d32'],
+      'nike': ['#e65100','#ff8f00'],
+      'adidas': ['#1a237e','#3949ab'],
+      'puma': ['#b71c1c','#e53935'],
+      'fila': ['#0d47a1','#1976d2'],
+      'new-balance': ['#c62828','#ef5350'],
+      'vans': ['#1a1a1a','#444'],
+      'levis': ['#3d1a1a','#6e2c2c']
+    };
+    const brandInitials = {
+      'tommy-hilfiger':'TH','calvin-klein':'CK','lacoste':'LC','ralph-lauren':'RL',
+      'hugo-boss':'HB','diesel':'DI','armani-exchange':'AX','reserva':'RV',
+      'osklen':'OS','john-john':'JJ','colcci':'CO','ellus':'EL','forum':'FM',
+      'nike':'NK','adidas':'AD','puma':'PM','fila':'FL','new-balance':'NB',
+      'vans':'VN','levis':'LV'
+    };
+
+    let allProducts = [];
+    let selectedBrands = new Set();
+    let selectedSizes = new Set();
+    let selectedColor = null;
+
+    fetch('produtos.json')
+      .then(r => r.json())
+      .then(data => {
+        allProducts = data.produtos;
+
+        // Build brand checkboxes from JSON data
+        const brands = [...new Set(allProducts.map(p => p.marca))].sort();
+        const filterMarcas = document.getElementById('filter-marcas');
+        brands.forEach(brand => {
+          const slug = allProducts.find(p => p.marca === brand).slug_marca;
+          const label = document.createElement('label');
+          label.innerHTML = `<input type="checkbox" data-marca="${slug}"> ${brand}`;
+          filterMarcas.appendChild(label);
+        });
+
+        // Check URL param for pre-selected brand
+        const params = new URLSearchParams(window.location.search);
+        const marcaParam = params.get('marca');
+        if (marcaParam) {
+          selectedBrands.add(marcaParam);
+          const cb = filterMarcas.querySelector(`input[data-marca="${marcaParam}"]`);
+          if (cb) cb.checked = true;
+        }
+
+        // Brand filter listeners
+        filterMarcas.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+          cb.addEventListener('change', function() {
+            if (this.checked) selectedBrands.add(this.dataset.marca);
+            else selectedBrands.delete(this.dataset.marca);
+            applyFilters();
+          });
+        });
+
+        // Size filter listeners
+        document.querySelectorAll('#filter-tamanhos input[type="checkbox"]').forEach(cb => {
+          cb.addEventListener('change', function() {
+            if (this.checked) selectedSizes.add(this.dataset.tamanho);
+            else selectedSizes.delete(this.dataset.tamanho);
+            applyFilters();
+          });
+        });
+
+        // Color filter listeners
+        document.querySelectorAll('.color-circle[data-cor]').forEach(el => {
+          el.addEventListener('click', function() {
+            document.querySelectorAll('.color-circle').forEach(c => c.style.outline = 'none');
+            if (selectedColor === this.dataset.cor) {
+              selectedColor = null;
+            } else {
+              selectedColor = this.dataset.cor;
+              this.style.outline = '2px solid #c8102e';
+              this.style.outlineOffset = '2px';
+            }
+            applyFilters();
+          });
+        });
+
+        // Price filter
+        document.getElementById('btn-price-filter').addEventListener('click', applyFilters);
+
+        // Sort listener
+        document.getElementById('sort-select').addEventListener('change', applyFilters);
+
+        // Clear filters
+        document.getElementById('btn-clear-filters').addEventListener('click', function() {
+          selectedBrands.clear();
+          selectedSizes.clear();
+          selectedColor = null;
+          document.querySelectorAll('.catalog-filters input[type="checkbox"]').forEach(cb => cb.checked = false);
+          document.querySelectorAll('.color-circle').forEach(c => c.style.outline = 'none');
+          document.getElementById('price-min').value = '';
+          document.getElementById('price-max').value = '';
+          document.getElementById('sort-select').value = 'relevancia';
+          applyFilters();
+        });
+
+        applyFilters();
+      });
+
+    function applyFilters() {
+      let filtered = [...allProducts];
+
+      // Brand filter
+      if (selectedBrands.size > 0) {
+        filtered = filtered.filter(p => selectedBrands.has(p.slug_marca));
+      }
+
+      // Size filter
+      if (selectedSizes.size > 0) {
+        filtered = filtered.filter(p => p.tamanhos.some(t => selectedSizes.has(t)));
+      }
+
+      // Color filter
+      if (selectedColor) {
+        filtered = filtered.filter(p => p.cor.toLowerCase().includes(selectedColor.toLowerCase()));
+      }
+
+      // Price filter
+      const minPrice = parseFloat(document.getElementById('price-min').value) || 0;
+      const maxPrice = parseFloat(document.getElementById('price-max').value) || Infinity;
+      if (minPrice > 0 || maxPrice < Infinity) {
+        filtered = filtered.filter(p => p.preco_atual >= minPrice && p.preco_atual <= maxPrice);
+      }
+
+      // Sort
+      const sortVal = document.getElementById('sort-select').value;
+      switch(sortVal) {
+        case 'menor-preco': filtered.sort((a,b) => a.preco_atual - b.preco_atual); break;
+        case 'maior-preco': filtered.sort((a,b) => b.preco_atual - a.preco_atual); break;
+        case 'maior-desconto': filtered.sort((a,b) => b.desconto - a.desconto); break;
+      }
+
+      document.getElementById('results-count').textContent = filtered.length + ' produto' + (filtered.length !== 1 ? 's' : '') + ' encontrado' + (filtered.length !== 1 ? 's' : '');
+      renderProducts(filtered);
+    }
+
+    function renderProducts(list) {
+      const grid = document.getElementById('products-grid');
+      if (list.length === 0) {
+        grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:#999;"><p style="font-size:18px;margin:0;">Nenhum produto encontrado com esses filtros.</p><p style="font-size:14px;margin-top:8px;">Tente alterar os filtros selecionados.</p></div>';
+        return;
+      }
+      grid.innerHTML = list.map(p => {
+        const colors = brandColors[p.slug_marca] || ['#1a1a1a','#333'];
+        const initials = brandInitials[p.slug_marca] || p.slug_marca.substring(0,2).toUpperCase();
+        const pixPrice = (p.preco_atual * 0.95).toFixed(2).replace('.', ',');
+        return `
+          <div class="product-card">
+            <div class="badges">
+              <span class="badge-discount">-${p.desconto}%</span>
+              ${p.frete_gratis ? '<span class="badge-frete">FRETE GRÁTIS</span>' : ''}
+            </div>
+            <div class="img-wrap">
+              <div style="width:100%;height:100%;background:linear-gradient(135deg,${colors[0]},${colors[1]});display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.15);font-size:48px;font-weight:900;">${initials}</div>
+              <div class="wishlist-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="brand">${p.marca}</div>
+              <div class="name">${p.nome}</div>
+              <div class="prices">
+                <span class="old-price">R$ ${p.preco_original.toFixed(2).replace('.', ',')}</span>
+                <span class="current-price">R$ ${p.preco_atual.toFixed(2).replace('.', ',')}</span>
+              </div>
+              <div class="pix-label">R$ ${pixPrice} no pix</div>
+              <div class="installments">12x R$ ${p.valor_parcela.toFixed(2).replace('.', ',')} s/juros</div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+  })();
+  </script>
 
   <!-- ── Footer ── -->
   <footer class="footer">
@@ -539,7 +451,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        &copy; 2026 <strong><i style="color:var(--secondary);font-style:normal;">i</i>Gool Grifes</strong>. Todos os direitos reservados. CNPJ: 00.000.000/0001-00
+        iGool Grifes | IGOOL GRIFES COMERCIO DE MODA | CNPJ: 54.245.290/0001-62 | Desde 2024 &mdash; Todos os direitos reservados.
       </div>
     </div>
   </footer>
